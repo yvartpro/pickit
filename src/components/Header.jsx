@@ -17,9 +17,7 @@ const Header = ({ isLoggedIn, onLogout }) => {
     return (
         <AppBar position="static" sx={{ background: '#2e3b55' }}>
             <Toolbar>
-                <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>
-                    BENI SERVICES
-                </Typography>
+                <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>DUN</Typography>
                 {isLoggedIn && (
                     <>
                         <Button color="inherit">Dashboard</Button>

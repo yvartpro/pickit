@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import DataGrid  from '@mui/x-data-grid/DataGrid';
+import { DataGrid } from '@mui/x-data-grid';
 import CheckBox from "@mui/icons-material/CheckBox";
 import { MyTextField } from "../MyTextField";
 

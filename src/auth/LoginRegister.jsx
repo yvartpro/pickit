@@ -70,7 +70,7 @@ const LoginRegister = ({ onLogin }) => {
 
   return (
     <Box display="flex" justifyContent="center" alignItems="center" minHeight="80vh">
-      <Paper elevation={3} sx={{ padding: 3, width: '350px' }}>
+      <Paper elevation={3} sx={{ padding: 3, width: '350px', px:2}}>
         <Typography variant="h5" align="center" mb={2}>
           {isLogin ? 'Login' : 'Register'}
         </Typography>

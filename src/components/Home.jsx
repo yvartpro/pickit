@@ -6,7 +6,6 @@ import Button from "@mui/material/Button";
 import {DataGrid}  from '@mui/x-data-grid';
 import CheckBox from "@mui/icons-material/CheckBox";
 import { MyTextField } from "../MyTextField";
-import { Hidden } from '@mui/material';
 import Box from '@mui/material/Box'
 
 const Home = ({ users, addUser }) => {
@@ -24,15 +23,15 @@ const Home = ({ users, addUser }) => {
 
   const columns = [
     { field: 'name', headerName: 'Nom et Prénom', width: 200 },
-    { field: 'address', headerName: 'Adresse', width: 200 },
-    { field: 'phone', headerName: 'Téléphone', width: 150 },
-    { field: 'item', headerName: 'Article', width: 150 },
-    { field: 'quantity', headerName: 'Quantité', type: 'number', width: 150 },
+    { field: 'address', headerName: 'Adresse', width: 100 },
+    { field: 'phone', headerName: 'Téléphone', width: 100 },
+    { field: 'item', headerName: 'Article', width: 120 },
+    { field: 'quantity', headerName: 'Quantité', type: 'number', width: 50 },
     {
       field: 'isReturned',
       headerName: 'Status',
-      width: 150,
-      renderCell: (params) => params.value ? <CheckBox /> : <CheckBox checked />
+      width: 50,
+      renderCell: (params) => params.value ? <CheckBox /> : <CheckBox />
     }
   ];
 

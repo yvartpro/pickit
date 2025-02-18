@@ -7,6 +7,7 @@ import {DataGrid}  from '@mui/x-data-grid';
 import CheckBox from "@mui/icons-material/CheckBox";
 import { MyTextField } from "../MyTextField";
 import { Hidden } from '@mui/material';
+import Box from '@mui/material/Box'
 
 const Home = ({ users, addUser }) => {
   const [newUser, setNewUser] = useState({ name: '', phone: '', address: '', item: '', quantity: '', isReturned: false });
@@ -63,7 +64,7 @@ const Home = ({ users, addUser }) => {
           }}
         />
       </div>
-      <Hidden smDown>
+      <Box sx={{display:{xs:'none'}}}>
           <Stack direction="row" spacing={2}>
             <MyTextField
               size="small"
@@ -103,8 +104,8 @@ const Home = ({ users, addUser }) => {
             />
             <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
           </Stack>
-      </Hidden>
-      <Hidden mdUp>
+      </Box>
+      <Box sx={{display:{md:'none'}}}>
         <Typography variant="h6" sx={{ my: 1, fontWeight: 600 }}>Nouveau client</Typography>
         <Stack direction="column">
           <MyTextField
@@ -145,7 +146,7 @@ const Home = ({ users, addUser }) => {
           />
           <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
         </Stack>
-      </Hidden>
+      </Box>
   </Stack>
   );
 };

@@ -46,7 +46,7 @@ const Home = ({ users, addUser }) => {
   })), [users]);
 
   return (
-    <Paper sx={{ minHeight: '80vh', mx: 2, my: 2, p: 2, display: 'flex', flexDirection: 'column' }}>
+    <Stack sx={{ minHeight: '80vh', mx: 2, my: 2, p: 2, display: 'flex', flexDirection: 'column' }}>
       <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>Tableau de bord</Typography>
       <div style={{ height: 400, width: '100%' }}>
         <DataGrid
@@ -60,11 +60,10 @@ const Home = ({ users, addUser }) => {
               { columnField: 'name', operatorValue: 'contains', value: '' },
               { columnField: 'address', operatorValue: 'contains', value: '' }
             ],
-            }}
+          }}
         />
       </div>
       <Hidden smDown>
-        <Paper sx={{ mt: 2, p: 2 }}>
           <Stack direction="row" spacing={2}>
             <MyTextField
               size="small"
@@ -104,53 +103,50 @@ const Home = ({ users, addUser }) => {
             />
             <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
           </Stack>
-        </Paper>
       </Hidden>
       <Hidden mdUp>
-        <Paper  sx={{ mt: 2, p: 2 }}>
-          <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>Nouveau client</Typography>
-          <Stack direction="column">
-            <MyTextField
-              size="small"
-              name="name"
-              value={newUser.name}
-              onChange={handleInputChange}
-              placeholder="Nom"
-            />
-            <MyTextField
-              size="small"
-              name="address"
-              value={newUser.address}
-              onChange={handleInputChange}
-              placeholder="Adresse"
-            />
-            <MyTextField
-              size="small"
-              name="phone"
-              value={newUser.phone}
-              onChange={handleInputChange}
-              placeholder="Téléphone"
-            />
-            <MyTextField
-              size="small"
-              name="item"
-              value={newUser.item}
-              onChange={handleInputChange}
-              placeholder="Article"
-            />
-            <MyTextField
-              size="small"
-              type="number"
-              name="quantity"
-              value={newUser.quantity}
-              onChange={handleInputChange}
-              placeholder="Quantité"
-            />
-            <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
-          </Stack>
-        </Paper>
+        <Typography variant="h6" sx={{ my: 1, fontWeight: 600 }}>Nouveau client</Typography>
+        <Stack direction="column">
+          <MyTextField
+            size="small"
+            name="name"
+            value={newUser.name}
+            onChange={handleInputChange}
+            placeholder="Nom"
+          />
+          <MyTextField
+            size="small"
+            name="address"
+            value={newUser.address}
+            onChange={handleInputChange}
+            placeholder="Adresse"
+          />
+          <MyTextField
+            size="small"
+            name="phone"
+            value={newUser.phone}
+            onChange={handleInputChange}
+            placeholder="Téléphone"
+          />
+          <MyTextField
+            size="small"
+            name="item"
+            value={newUser.item}
+            onChange={handleInputChange}
+            placeholder="Article"
+          />
+          <MyTextField
+            size="small"
+            type="number"
+            name="quantity"
+            value={newUser.quantity}
+            onChange={handleInputChange}
+            placeholder="Quantité"
+          />
+          <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
+        </Stack>
       </Hidden>
-  </Paper>
+  </Stack>
   );
 };
 

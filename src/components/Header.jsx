@@ -21,7 +21,7 @@ const Header = ({ isLoggedIn, onLogout }) => {
             {isLoggedIn && (
               <>
                 <Button color="inherit" onClick={logout} startIcon={<ExitToApp />}>
-                    D&eaute;connexion
+                    Deconnexion
                 </Button>
               </>
           )}

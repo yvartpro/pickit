@@ -36,7 +36,6 @@ const LoginRegister = ({ onLogin }) => {
     const endpoint = isLogin ? 'https://capbio.bi/api/login.php' : 'https://capbio.bi/api/register.php';
   
     try {
-      console.log(company)
       const resp = await fetch(endpoint, {
         method: 'POST',
         headers: {
@@ -50,12 +49,8 @@ const LoginRegister = ({ onLogin }) => {
       }
   
       const res = await resp.json();
-      console.log(res);
-  
       if (res.success && isLogin) {
-        // Successful login, save token to localStorage and redirect
-        localStorage.setItem('token', res.token);
-        onLogin(res.token); // Pass token to parent component
+        onLogin(res.token,res.data); // Pass token to parent component
         navigate('/home'); // Redirect to home after login
       } else {
         // Handle registration or login failure

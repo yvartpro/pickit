@@ -6,8 +6,9 @@ import Home from './components/Home';
 import Header from './components/Header';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState({})
 
   useEffect(() => {
     const storedUsers = localStorage.getItem('users');
@@ -15,15 +16,17 @@ function App() {
         setUsers(JSON.parse(storedUsers));
     }
     const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token); // Check if token exists in localStorage
+    setIsLoggedIn(!!token)
   }, []);
 
-  const handleLogin = (token) => {
+  const handleLogin = (token,user) => {
+    setUser(user)
     localStorage.setItem('token', token);
     setIsLoggedIn(true);
   };
 
   const handleLogout = () => {
+    setUser({})
     localStorage.removeItem('token');
     setIsLoggedIn(false);
   };
@@ -35,16 +38,14 @@ function App() {
   };
 
   return (
-    <Theme>
     <Router>
-      <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+      <Header isLoggedIn={isLoggedIn} user={user} onLogout={handleLogout} />
       <Routes>
         <Route path="/login" element={<LoginRegister onLogin={handleLogin} />} />
         <Route path="/" element={isLoggedIn ? <Home users={users} addUser={addUser} /> : <Navigate to="/login" />} />
         <Route path="*" element={<Navigate to={isLoggedIn ? "/" : "/login"} />} />
       </Routes>
     </Router>
-    </Theme>
   );
 }
 

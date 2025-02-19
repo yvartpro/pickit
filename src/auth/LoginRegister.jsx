@@ -27,14 +27,14 @@ const LoginRegister = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const isValidAuthType = determineAuthType();
     if (!isValidAuthType) {
         return; // Stop if auth type is invalid
     }
-  
+
     const endpoint = isLogin ? 'https://capbio.bi/api/login.php' : 'https://capbio.bi/api/register.php';
-  
+
     try {
       const resp = await fetch(endpoint, {
         method: 'POST',
@@ -43,11 +43,11 @@ const LoginRegister = ({ onLogin }) => {
         },
         body: JSON.stringify(company),
       });
-  
+
       if (!resp.ok) {
         throw new Error(resp.statusText);
       }
-  
+
       const res = await resp.json();
       if (res.success && isLogin) {
         onLogin(res.token,res.data); // Pass token to parent component
@@ -61,7 +61,7 @@ const LoginRegister = ({ onLogin }) => {
       alert('An error occurred. Please try again.');
     }
   };
-  
+
 
   return (
     <Box display="flex" justifyContent="center" alignItems="center" minHeight="80vh">
@@ -129,7 +129,7 @@ const LoginRegister = ({ onLogin }) => {
             </Button>
           </Typography>
         </Box>
-      </Paper>      
+      </Paper>
     </Box>
   );
 };

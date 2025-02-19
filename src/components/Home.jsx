@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import {DataGrid}  from '@mui/x-data-grid';
 import CheckBox from "@mui/icons-material/CheckBox";
-import { MyTextField } from "../MyTextField";
+import { TextField } from "@mui/material";
 import Box from '@mui/material/Box'
 
 const Home = ({ users, addUser }) => {
@@ -63,37 +63,36 @@ const Home = ({ users, addUser }) => {
           }}
         />
       </div>
-      <Box sx={{display:{lg:'none'}}}>
-          <Stack direction="row" spacing={2}>
-            <MyTextField
+      <Box sx={{display:{lg:'flex',xs:'none'}, justifyContent:'space-around', alignItems:'center', py:2}}>
+            <TextField
               size="small"
               name="name"
               value={newUser.name}
               onChange={handleInputChange}
               placeholder="Nom"
             />
-            <MyTextField
+            <TextField
               size="small"
               name="address"
               value={newUser.address}
               onChange={handleInputChange}
               placeholder="Adresse"
             />
-            <MyTextField
+            <TextField
               size="small"
               name="phone"
               value={newUser.phone}
               onChange={handleInputChange}
               placeholder="Téléphone"
             />
-            <MyTextField
+            <TextField
               size="small"
               name="item"
               value={newUser.item}
               onChange={handleInputChange}
               placeholder="Article"
               />
-            <MyTextField
+            <TextField
               size="small"
               type="number"
               name="quantity"
@@ -102,40 +101,39 @@ const Home = ({ users, addUser }) => {
               placeholder="Quantité"
             />
             <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
-          </Stack>
       </Box>
-      <Box sx={{display:{md:'none'}}}>
+      <Box sx={{display:{md:'flex',lg:'none', xs:'none'}, justifyContent:'space-around', alignItems:'center', py:2}}>
         <Typography variant="h6" sx={{ my: 1, fontWeight: 600 }}>Nouveau client</Typography>
         <Stack direction="column">
-          <MyTextField
+          <TextField
             size="small"
             name="name"
             value={newUser.name}
             onChange={handleInputChange}
             placeholder="Nom"
           />
-          <MyTextField
+          <TextField
             size="small"
             name="address"
             value={newUser.address}
             onChange={handleInputChange}
             placeholder="Adresse"
           />
-          <MyTextField
+          <TextField
             size="small"
             name="phone"
             value={newUser.phone}
             onChange={handleInputChange}
             placeholder="Téléphone"
           />
-          <MyTextField
+          <TextField
             size="small"
             name="item"
             value={newUser.item}
             onChange={handleInputChange}
             placeholder="Article"
           />
-          <MyTextField
+          <TextField
             size="small"
             type="number"
             name="quantity"

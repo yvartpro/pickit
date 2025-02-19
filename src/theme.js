@@ -4,7 +4,7 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#E6B8AF', // Dusty Rose - a soft, elegant pink
+      main: '#F5A090', // Dusty Rose - a soft, elegant pink
       light: '#FFD9C2', // Light Peach - for accents and highlights
       dark: '#A68E87',  // Taupe - for contrast and grounding
       contrastText: '#fff', // White text for good readability on primary color
@@ -41,7 +41,8 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: '#E6B8AF', // Primary color for AppBar
+          // backgroundColor: '#F5A090', // Primary color for AppBar
+          backgroundColor: '#F5A090', // Primary color for AppBar
           color: '#fff', // White text on AppBar
           boxShadow: '0px 2px 4px rgba(0,0,0,0.1)', // Subtle shadow
         },
@@ -61,7 +62,7 @@ const theme = createTheme({
           padding: '8px 16px',
         },
         containedPrimary: {
-          backgroundColor: '#E6B8AF',
+          backgroundColor: '#F5A090',
           '&:hover': {
             backgroundColor: '#A68E87', // Darker shade on hover
           },

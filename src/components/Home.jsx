@@ -102,7 +102,7 @@ const Home = ({ users, addUser }) => {
             />
             <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
       </Box>
-      <Box sx={{display:{md:'flex',lg:'none', xs:'none'}, justifyContent:'space-around', alignItems:'center', py:2}}>
+      <Box sx={{display:{md:'flex',lg:'none'}, justifyContent:'space-around', alignItems:'center', py:2}}>
         <Typography variant="h6" sx={{ my: 1, fontWeight: 600 }}>Nouveau client</Typography>
         <Stack direction="column">
           <TextField

@@ -22,15 +22,15 @@ const Home = ({ users, addUser }) => {
   };
 
   const columns = [
-    { field: 'name', headerName: 'Nom et Prénom', width: 200 },
-    { field: 'address', headerName: 'Adresse', width: 100 },
+    { field: 'name', headerName: 'Nom et Prénom', width: 250 },
+    { field: 'address', headerName: 'Adresse', width: 150 },
     { field: 'phone', headerName: 'Téléphone', width: 100 },
-    { field: 'item', headerName: 'Article', width: 120 },
-    { field: 'quantity', headerName: 'Quantité', type: 'number', width: 50 },
+    { field: 'item', headerName: 'Article', width: 150 },
+    { field: 'quantity', headerName: 'QT', type: 'number', width: 50 },
     {
       field: 'isReturned',
       headerName: 'Status',
-      width: 50,
+      width: 80,
       renderCell: (params) => params.value ? <CheckBox /> : <CheckBox />
     }
   ];
@@ -63,7 +63,7 @@ const Home = ({ users, addUser }) => {
           }}
         />
       </div>
-      <Box sx={{display:{lg:'flex',xs:'none'}, justifyContent:'space-around', alignItems:'center', py:2}}>
+      <Box sx={{display:{lg:'flex',md:'none',xs:'none'}, justifyContent:'space-around', alignItems:'center', py:2,flexDirection:'row'}}>
             <TextField
               size="small"
               name="name"
@@ -102,7 +102,46 @@ const Home = ({ users, addUser }) => {
             />
             <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
       </Box>
-      <Box sx={{display:{md:'flex',lg:'none'}, justifyContent:'space-around', alignItems:'center', py:2}}>
+      <Box sx={{display:{md:'flex',lg:'none', xs:'none'}, justifyContent:'space-around', alignItems:'center', py:2, flexDirection:'row'}}>
+        <TextField
+          size="small"
+          name="name"
+          value={newUser.name}
+          onChange={handleInputChange}
+          placeholder="Nom"
+        />
+        <TextField
+          size="small"
+          name="address"
+          value={newUser.address}
+          onChange={handleInputChange}
+          placeholder="Adresse"
+        />
+        <TextField
+          size="small"
+          name="phone"
+          value={newUser.phone}
+          onChange={handleInputChange}
+          placeholder="Téléphone"
+        />
+        <TextField
+          size="small"
+          name="item"
+          value={newUser.item}
+          onChange={handleInputChange}
+          placeholder="Article"
+        />
+        <TextField
+          size="small"
+          type="number"
+          name="quantity"
+          value={newUser.quantity}
+          onChange={handleInputChange}
+          placeholder="Quantité"
+        />
+        <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
+      </Box>
+      <Box sx={{display:{xs:'flex',md:'none',lg:'none'}, justifyContent:'space-around', alignItems:'center', py:2, flexDirection:'column'}}>
         <Typography variant="h6" sx={{ my: 1, fontWeight: 600 }}>Nouveau client</Typography>
         <Stack direction="column">
           <TextField

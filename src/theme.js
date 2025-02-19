@@ -4,24 +4,24 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#F5A090', // Dusty Rose - a soft, elegant pink
-      light: '#FFD9C2', // Light Peach - for accents and highlights
-      dark: '#A68E87',  // Taupe - for contrast and grounding
-      contrastText: '#fff', // White text for good readability on primary color
+      main: '#F5A090',
+      light: '#FFD9C2',
+      dark: '#A68E87', 
+      contrastText: '#fff',
     },
     secondary: {
-      main: '#77ACA2', // Seafoam Green - a calming and sophisticated secondary color
+      main: '#77ACA2', 
       light: '#B2BEB5',
       dark: '#5A807A',
       contrastText: '#fff',
     },
     background: {
-      default: '#F8F8F8', // Very light gray for overall background
-      paper: '#FFFFFF',  // White for paper-based elements
+      default: '#F8F8F8', 
+      paper: '#FFFFFF', 
     },
     text: {
-      primary: '#333333', // Dark gray for main text
-      secondary: '#555555', // Slightly lighter gray for less important text
+      primary: '#333333', 
+      secondary: '#555555', 
     },
     error: {
       main: '#d32f2f',
@@ -34,37 +34,36 @@ const theme = createTheme({
       fontSize: '1.25rem',
     },
     button: {
-      textTransform: 'none', // Prevent buttons from being all uppercase
+      textTransform: 'none',
     },
   },
   components: {
     MuiAppBar: {
       styleOverrides: {
         root: {
-          // backgroundColor: '#F5A090', // Primary color for AppBar
-          backgroundColor: '#F5A090', // Primary color for AppBar
-          color: '#fff', // White text on AppBar
-          boxShadow: '0px 2px 4px rgba(0,0,0,0.1)', // Subtle shadow
+          backgroundColor: '#F5A090',
+          color: '#fff',
+          boxShadow: '0px 2px 4px rgba(0,0,0,0.1)',
         },
       },
     },
     MuiToolbar: {
       styleOverrides: {
         root: {
-          minHeight: '64px', // Adjust toolbar height if needed
+          minHeight: '64px',
         },
       },
     },
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: '8px', // Rounded buttons
+          borderRadius: '5px',
           padding: '8px 16px',
         },
         containedPrimary: {
           backgroundColor: '#F5A090',
           '&:hover': {
-            backgroundColor: '#A68E87', // Darker shade on hover
+            backgroundColor: '#A68E87',
           },
         },
       },
@@ -79,10 +78,10 @@ const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          borderRadius: '12px', // Rounded corners for Paper
+          borderRadius: '5px',
         },
         elevation3: {
-          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.08)', // Softer shadow
+          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.08)',
         },
       },
     },
@@ -99,7 +98,7 @@ const theme = createTheme({
     MuiCheckbox: {
         styleOverrides: {
           root: {
-            color: '#77ACA2', // Seafoam Green - a calming and sophisticated secondary color
+            color: '#77ACA2',
             '&.Mui-checked': {
               color: '#77ACA2',
             },

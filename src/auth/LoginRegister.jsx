@@ -118,14 +118,14 @@ const LoginRegister = ({ onLogin }) => {
             required
           />
           <Button type="submit" variant="contained" color="primary" fullWidth mt={3}>
-            {isLogin ? 'Login' : 'Register'}
+            {isLogin ? 'Connexion' : 'S\'identifier'}
           </Button>
         </form>
         <Box mt={2} textAlign="center">
           <Typography>
-            {isLogin ? "Don't have an account? " : "Already have an account? "}
+            {isLogin ? "Vous n'avez pas de compte ? " : "Avez-vous deja un compte? "}
             <Button color="primary" onClick={() => setIsLogin(!isLogin)}>
-              {isLogin ? 'Register' : 'Login'}
+              {isLogin ? 'Creez-en un.' : 'Connectez-vous.'}
             </Button>
           </Typography>
         </Box>

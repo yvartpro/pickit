@@ -9,7 +9,7 @@ import { MyTextField } from "../MyTextField";
 import Box from '@mui/material/Box'
 
 const Home = ({ users, addUser }) => {
-  const [newUser, setNewUser] = useState({ name: '', phone: '', address: '', item: '', quantity: '', isReturned: false });
+  const [newUser, setNewUser] = useState({ name: '',userId:'',phone: '', address: '', item: '', quantity: '', isReturned: false });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

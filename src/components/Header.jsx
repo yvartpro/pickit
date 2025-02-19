@@ -20,9 +20,8 @@ const Header = ({ isLoggedIn, onLogout }) => {
           <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>DUN</Typography>
             {isLoggedIn && (
               <>
-                <Button color="inherit">Dashboard</Button>
                 <Button color="inherit" onClick={logout} startIcon={<ExitToApp />}>
-                    Logout
+                    D&eaute;connexion
                 </Button>
               </>
           )}

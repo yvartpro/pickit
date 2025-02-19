@@ -35,6 +35,7 @@ function App() {
   };
 
   return (
+    <Theme>
     <Router>
       <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} />
       <Routes>
@@ -43,6 +44,7 @@ function App() {
         <Route path="*" element={<Navigate to={isLoggedIn ? "/" : "/login"} />} />
       </Routes>
     </Router>
+    </Theme>
   );
 }
 

@@ -134,7 +134,7 @@ const LoginRegister = ({ onLogin }) => {
             </Button>
           </Typography>
         </Box>
-      </Paper>           
+      </Paper>      
     </Box>
   );
 };

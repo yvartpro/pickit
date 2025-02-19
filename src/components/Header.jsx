@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import { ExitToApp } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
-const Header = ({ isLoggedIn, onLogout }) => {
+const Header = ({ isLoggedIn, onLogout, user }) => {
   const navigate = useNavigate();
 
   const logout = () => {
@@ -20,6 +20,7 @@ const Header = ({ isLoggedIn, onLogout }) => {
           <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>DUN</Typography>
             {isLoggedIn && (
               <>
+                <Button color='inherit'>{user.name}</Button>
                 <Button color="inherit" onClick={logout} startIcon={<ExitToApp />}>
                     Deconnexion
                 </Button>

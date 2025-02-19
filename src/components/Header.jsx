@@ -16,15 +16,13 @@ const Header = ({ isLoggedIn, onLogout, user }) => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{borderRadius:0}}>
       <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>DUN</Typography>
             {isLoggedIn && (
               <Box sx={{display:'flex',gap:2, alignItems:'center'}}>
                 <Button color='inherit'>{user.name}</Button>
-                <Button color="inherit" onClick={logout} startIcon={<ExitToApp />}>
-                    Deconnexion
-                </Button>
+                <Button color="inherit" onClick={logout} startIcon={<ExitToApp />}/>
               </Box>
           )}
       </Toolbar>

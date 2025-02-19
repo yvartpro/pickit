@@ -63,7 +63,7 @@ const Home = ({ users, addUser }) => {
           }}
         />
       </div>
-      <Box sx={{display:{xs:'none'}}}>
+      <Box sx={{display:{lg:'none'}}}>
           <Stack direction="row" spacing={2}>
             <MyTextField
               size="small"

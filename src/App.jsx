@@ -4,6 +4,8 @@ import './App.css';
 import LoginRegister from './auth/LoginRegister';
 import Home from './components/Home';
 import Header from './components/Header';
+import { ThemeProvider } from '@mui/material/styles'
+import theme from './theme';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,14 +40,16 @@ function App() {
   };
 
   return (
-    <Router>
-      <Header isLoggedIn={isLoggedIn} user={user} onLogout={handleLogout} />
-      <Routes>
-        <Route path="/login" element={<LoginRegister onLogin={handleLogin} />} />
-        <Route path="/" element={isLoggedIn ? <Home users={users} addUser={addUser} /> : <Navigate to="/login" />} />
-        <Route path="*" element={<Navigate to={isLoggedIn ? "/" : "/login"} />} />
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Header isLoggedIn={isLoggedIn} user={user} onLogout={handleLogout} />
+        <Routes>
+          <Route path="/login" element={<LoginRegister onLogin={handleLogin} />} />
+          <Route path="/" element={isLoggedIn ? <Home users={users} addUser={addUser} /> : <Navigate to="/login" />} />
+          <Route path="*" element={<Navigate to={isLoggedIn ? "/" : "/login"} />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 

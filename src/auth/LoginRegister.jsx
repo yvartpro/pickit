@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Paper, TextField, Button, Typography, Box} from '@mui/material';
-import Snackbar from '@mui/material/Snackbar';
 
 
 const LoginRegister = ({ onLogin }) => {
-  const [isLogin, setIsLogin] = useState(true);
-  const [company, setCompany] = useState({ name: '', address:'', auth: '', password: '' });
-  const [sapor, setSapor] = useState(null);
+  const [isLogin, setIsLogin] = useState(true)
+  const [company, setCompany] = useState({ name: '', address:'', auth: '', password: '' })
+  const [msg, setMsg] = useState(null)
+  const [sapor, setSapor] = useState(null)
   const navigate = useNavigate();
+
+
 
   const pickValue = (e) => {
     const { name, value } = e.target;
@@ -52,18 +54,18 @@ const LoginRegister = ({ onLogin }) => {
       }
 
       const res = await resp.json();
-      console.log(res)
       if (res.success && isLogin) {
-        alert(res.message)
-        // onLogin(res.token,res.data); // Pass token to parent component
-        // navigate('/home'); // Redirect to home after login
-      } else {
-        // Handle registration or login failure
-        alert(res.message); // Show an error message
+        setMsg(res.message)
+        onLogin(res.token,res.data); // Pass token to parent component
+        navigate('/home'); // Redirect to home after login
+      } else{
+        setSapor(res.error)
       }
     } catch (err) {
-      console.error(err.message);
-      alert('An error occurred. Please try again.');
+      setSapor(err.message)
+    }finally{
+        setMsg(null)
+        setSapor(null)
     }
   };
 
@@ -71,6 +73,8 @@ const LoginRegister = ({ onLogin }) => {
   return (
     <Box display="flex" justifyContent="center" alignItems="center" minHeight="80vh">
       <Paper elevation={3} sx={{ padding: 3, width: '350px', px:2}}>
+        {msg && <Typography sx={{color:'green',fontSize:'12px'}}>{msg}</Typography>}
+        {sapor && <Typography sx={{color: '#d32f2f',fontSize: '12px'}}>{sapor}</Typography>}
         <Typography variant="h5" align="center" mb={2}>
           {isLogin ? 'Login' : 'Register'}
         </Typography>

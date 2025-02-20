@@ -51,6 +51,7 @@ const Home = ({ rentals, addRent }) => {
     columnMenuFilter: 'Filtrer',
     columnMenuHideColumn: 'Masquer',
     columnMenuShowColumns: 'Afficher',
+    columnMenuManageColumns: 'Gérer'
   }
 
   return (

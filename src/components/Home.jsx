@@ -8,7 +8,7 @@ import { TextField } from "@mui/material";
 import Box from '@mui/material/Box'
 
 const Home = ({ rentals, addRent }) => {
-  const [newRent, setnewRent] = useState({ name: '',userId:'',phone: '', address: '', item: '', quantity: '', isReturned: false });
+  const [newRent, setnewRent] = useState({ name: '',userId:'',phone: '', address: '', item: '', quantity: '', isReturned: false })
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -53,13 +53,32 @@ const Home = ({ rentals, addRent }) => {
     columnMenuShowColumns: 'Afficher',
     columnMenuManageColumns: 'Gérer'
   }
+  //now perform search in rows
+  const [query, setQuery] = useState({})
+  const [result, setResult] = useState(rows)
+
+  const handleSearch = (e) => {
+    const value = e.target.value.toLowerCase()
+    setQuery(value)
+
+    const filter = rows.filter((row) => row.name.toLowerCase().includes(value))
+
+    setResult(filter)
+  }
 
   return (
     <Stack sx={{ minHeight: '80vh', mx: 2, my: 2, p: 2, display: 'flex', flexDirection: 'column' }}>
       <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>Tableau de bord</Typography>
       <div style={{ height: 400, width: '100%' }}>
+        <TextField
+          label="Rechercher..."
+          variant="outlined"
+          margin="normal"
+          sx={{maxWidth:'300px'}}
+          onChange={handleSearch}
+        />
         <DataGrid
-          rows={rows}
+          rows={result}
           columns={columns}
           pageSize={5}
           rowsPerPageOptions={[5]}

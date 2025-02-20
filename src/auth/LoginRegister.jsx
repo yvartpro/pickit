@@ -35,8 +35,8 @@ const LoginRegister = ({ onLogin }) => {
         return; // Stop if auth type is invalid
     }
 
-    // const endpoint = isLogin ? 'https://capbio.bi/api/login.php' : 'https://capbio.bi/api/register.php';
-       const endpoint = 'http://192.168.10.25/dun/model.php'
+    const endpoint = isLogin ? 'https://capbio.bi/api/login.php' : 'https://capbio.bi/api/register.php';
+      //  const endpoint = 'http://192.168.10.25/dun/model.php'
     try {    
       const resp = await fetch(endpoint, {
         method: 'POST',

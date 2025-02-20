@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
 import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import {DataGrid}  from '@mui/x-data-grid';
@@ -45,6 +44,15 @@ const Home = ({ rentals, addRent }) => {
     isReturned: user.isReturned
   })), [rentals]);
 
+  const localeText = {
+    noRowsLabel: 'Aucune donnée',
+    columnMenuSortAsc: 'Croissant',
+    columnMenuSortDesc: 'Décroissant',
+    columnMenuFilter: 'Filtrer',
+    columnMenuHideColumn: 'Masquer',
+    columnMenuShowColumns: 'Afficher',
+  }
+
   return (
     <Stack sx={{ minHeight: '80vh', mx: 2, my: 2, p: 2, display: 'flex', flexDirection: 'column' }}>
       <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>Tableau de bord</Typography>
@@ -61,6 +69,7 @@ const Home = ({ rentals, addRent }) => {
               { columnField: 'address', operatorValue: 'contains', value: '' }
             ],
           }}
+          localeText={localeText}
         />
       </div>
       <Box sx={{display:{lg:'flex',md:'none',xs:'none'}, justifyContent:'space-around', alignItems:'center', py:2,flexDirection:'row'}}>

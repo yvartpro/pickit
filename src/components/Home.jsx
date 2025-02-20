@@ -8,17 +8,17 @@ import CheckBox from "@mui/icons-material/CheckBox";
 import { TextField } from "@mui/material";
 import Box from '@mui/material/Box'
 
-const Home = ({ users, addUser }) => {
-  const [newUser, setNewUser] = useState({ name: '',userId:'',phone: '', address: '', item: '', quantity: '', isReturned: false });
+const Home = ({ rentals, addRent }) => {
+  const [newRent, setnewRent] = useState({ name: '',userId:'',phone: '', address: '', item: '', quantity: '', isReturned: false });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewUser(prev => ({ ...prev, [name]: value }));
+    setnewRent(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleAddUser = () => {
-    addUser(newUser);
-    setNewUser({ name: '', phone: '', address: '', item: '', quantity: '', isReturned: false }); // Clear form
+  const handleaddRent = () => {
+    addRent(newRent);
+    setnewRent({ name: '', phone: '', address: '', item: '', quantity: '', isReturned: false }); // Clear form
   };
 
   const columns = [
@@ -35,7 +35,7 @@ const Home = ({ users, addUser }) => {
     }
   ];
 
-  const rows = useMemo(() => users.map((user, index) => ({
+  const rows = useMemo(() => rentals.map((user, index) => ({
     id: index + 1,  // Add unique 'id' for each row (required by DataGrid)
     name: user.name,
     address: user.address,
@@ -43,7 +43,7 @@ const Home = ({ users, addUser }) => {
     item: user.item,
     quantity: user.quantity,
     isReturned: user.isReturned
-  })), [users]);
+  })), [rentals]);
 
   return (
     <Stack sx={{ minHeight: '80vh', mx: 2, my: 2, p: 2, display: 'flex', flexDirection: 'column' }}>
@@ -68,7 +68,7 @@ const Home = ({ users, addUser }) => {
               size="small"
               sx={{mx:1}}
               name="name"
-              value={newUser.name}
+              value={newRent.name}
               onChange={handleInputChange}
               placeholder="Nom"
             />
@@ -76,7 +76,7 @@ const Home = ({ users, addUser }) => {
               size="small"
               sx={{mx:1}}
               name="address"
-              value={newUser.address}
+              value={newRent.address}
               onChange={handleInputChange}
               placeholder="Adresse"
             />
@@ -84,7 +84,7 @@ const Home = ({ users, addUser }) => {
               size="small"
               sx={{mx:1}}
               name="phone"
-              value={newUser.phone}
+              value={newRent.phone}
               onChange={handleInputChange}
               placeholder="Téléphone"
             />
@@ -92,7 +92,7 @@ const Home = ({ users, addUser }) => {
               size="small"
               sx={{mx:1}}
               name="item"
-              value={newUser.item}
+              value={newRent.item}
               onChange={handleInputChange}
               placeholder="Article"
               />
@@ -101,18 +101,18 @@ const Home = ({ users, addUser }) => {
               sx={{width:'100px',mx:1}}
               type="number"
               name="quantity"
-              value={newUser.quantity}
+              value={newRent.quantity}
               onChange={handleInputChange}
               placeholder="Quantité"
             />
-            <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
+            <Button onClick={handleaddRent} variant="contained" color="primary" size="small">Ajouter</Button>
       </Box>
       <Box sx={{display:{md:'flex',lg:'none', xs:'none'}, justifyContent:'space-around', alignItems:'center', py:2, flexDirection:'row'}}>
         <TextField
           size="small"
           sx={{mx:1}}
           name="name"
-          value={newUser.name}
+          value={newRent.name}
           onChange={handleInputChange}
           placeholder="Nom"
         />
@@ -120,7 +120,7 @@ const Home = ({ users, addUser }) => {
           size="small"
           sx={{mx:1}}
           name="address"
-          value={newUser.address}
+          value={newRent.address}
           onChange={handleInputChange}
           placeholder="Adresse"
         />
@@ -128,7 +128,7 @@ const Home = ({ users, addUser }) => {
           size="small"
           sx={{mx:1}}
           name="phone"
-          value={newUser.phone}
+          value={newRent.phone}
           onChange={handleInputChange}
           placeholder="Téléphone"
         />
@@ -136,7 +136,7 @@ const Home = ({ users, addUser }) => {
           size="small"
           sx={{mx:1}}
           name="item"
-          value={newUser.item}
+          value={newRent.item}
           onChange={handleInputChange}
           placeholder="Article"
         />
@@ -145,11 +145,11 @@ const Home = ({ users, addUser }) => {
           sx={{width:'100px',mx:1}}
           type="number"
           name="quantity"
-          value={newUser.quantity}
+          value={newRent.quantity}
           onChange={handleInputChange}
           placeholder="Quantité"
         />
-        <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
+        <Button onClick={handleaddRent} variant="contained" color="primary" size="small">Ajouter</Button>
       </Box>
       <Box sx={{display:{xs:'flex',md:'none',lg:'none'}, justifyContent:'space-around', alignItems:'center', py:2, flexDirection:'column'}}>
         <Typography variant="h6" sx={{ my: 1, fontWeight: 600 }}>Nouveau client</Typography>
@@ -157,28 +157,28 @@ const Home = ({ users, addUser }) => {
           <TextField
             size="small"
             name="name"
-            value={newUser.name}
+            value={newRent.name}
             onChange={handleInputChange}
             placeholder="Nom"
           />
           <TextField
             size="small"
             name="address"
-            value={newUser.address}
+            value={newRent.address}
             onChange={handleInputChange}
             placeholder="Adresse"
           />
           <TextField
             size="small"
             name="phone"
-            value={newUser.phone}
+            value={newRent.phone}
             onChange={handleInputChange}
             placeholder="Téléphone"
           />
           <TextField
             size="small"
             name="item"
-            value={newUser.item}
+            value={newRent.item}
             onChange={handleInputChange}
             placeholder="Article"
           />
@@ -186,11 +186,11 @@ const Home = ({ users, addUser }) => {
             size="small"
             type="number"
             name="quantity"
-            value={newUser.quantity}
+            value={newRent.quantity}
             onChange={handleInputChange}
             placeholder="Quantité"
           />
-          <Button onClick={handleAddUser} variant="contained" color="primary" size="small">Ajouter</Button>
+          <Button onClick={handleaddRent} variant="contained" color="primary" size="small">Ajouter</Button>
         </Stack>
       </Box>
   </Stack>

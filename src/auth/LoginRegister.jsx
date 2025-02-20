@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Paper, TextField, Button, Typography, Box} from '@mui/material';
 
+
 const LoginRegister = ({ onLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [company, setCompany] = useState({ name: '', address:'', auth: '', password: '' });
@@ -34,6 +35,7 @@ const LoginRegister = ({ onLogin }) => {
     }
 
     const endpoint = isLogin ? 'https://capbio.bi/api/login.php' : 'https://capbio.bi/api/register.php';
+    // const endpoint = isLogin ? 'http://192.168.10.25/dun/model.php' : 'http://192.168.10.25/dun/model.php';
 
     try {
       const resp = await fetch(endpoint, {
@@ -49,9 +51,11 @@ const LoginRegister = ({ onLogin }) => {
       }
 
       const res = await resp.json();
+      console.log(res)
       if (res.success && isLogin) {
-        onLogin(res.token,res.data); // Pass token to parent component
-        navigate('/home'); // Redirect to home after login
+        alert(res.message)
+        // onLogin(res.token,res.data); // Pass token to parent component
+        // navigate('/home'); // Redirect to home after login
       } else {
         // Handle registration or login failure
         alert(res.message); // Show an error message

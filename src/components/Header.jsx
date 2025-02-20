@@ -5,7 +5,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { ExitToApp } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, ImageList } from '@mui/material';
+import logo from '../assets/dun.png'
 
 const Header = ({ isLoggedIn, onLogout, user }) => {
   const navigate = useNavigate();
@@ -18,7 +19,9 @@ const Header = ({ isLoggedIn, onLogout, user }) => {
   return (
     <AppBar position="static" sx={{borderRadius:0}}>
       <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>DUN</Typography>
+          <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>
+            <img src={logo} style={{width:'50px'}} alt='DUN'/>
+          </Typography>
             {isLoggedIn && (
               <Box sx={{display:'flex',gap:2, alignItems:'center'}}>
                 <Button color='inherit'>{user.name}</Button>

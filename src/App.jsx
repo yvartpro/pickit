@@ -9,13 +9,13 @@ import theme from './theme';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [users, setUsers] = useState([]);
+  const [rentals, setrentals] = useState([]);
   const [user, setUser] = useState({})
 
   useEffect(() => {
-    const storedUsers = localStorage.getItem('users');
-    if (storedUsers) {
-        setUsers(JSON.parse(storedUsers));
+    const storedrentals = localStorage.getItem('rentals');
+    if (storedrentals) {
+        setrentals(JSON.parse(storedrentals));
     }
     const token = localStorage.getItem('token');
     setIsLoggedIn(!!token)
@@ -33,10 +33,10 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  const addUser = (newUser) => {
-    const updatedUsers = [...users, newUser];
-    setUsers(updatedUsers);
-    localStorage.setItem('users', JSON.stringify(updatedUsers));
+  const addRent = (newRent) => {
+    const updatedrentals = [...rentals, newRent];
+    setrentals(updatedrentals);
+    localStorage.setItem('rentals', JSON.stringify(updatedrentals));
   };
 
   return (
@@ -45,7 +45,7 @@ function App() {
         <Header isLoggedIn={isLoggedIn} user={user} onLogout={handleLogout} />
         <Routes>
           <Route path="/login" element={<LoginRegister onLogin={handleLogin} />} />
-          <Route path="/" element={isLoggedIn ? <Home users={users} addUser={addUser} /> : <Navigate to="/login" />} />
+          <Route path="/" element={isLoggedIn ? <Home rentals={rentals} addRent={addRent} /> : <Navigate to="/login" />} />
           <Route path="*" element={<Navigate to={isLoggedIn ? "/" : "/login"} />} />
         </Routes>
       </Router>

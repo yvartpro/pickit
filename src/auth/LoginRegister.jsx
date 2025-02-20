@@ -5,12 +5,10 @@ import { Paper, TextField, Button, Typography, Box} from '@mui/material';
 
 const LoginRegister = ({ onLogin }) => {
   const [isLogin, setIsLogin] = useState(true)
-  const [company, setCompany] = useState({ name: '', address:'', auth: '', password: '' })
+  const [company, setCompany] = useState({ name: '', address:'', auth: '', password: '',login:true })
   const [msg, setMsg] = useState(null)
   const [sapor, setSapor] = useState(null)
   const navigate = useNavigate();
-
-
 
   const pickValue = (e) => {
     const { name, value } = e.target;
@@ -37,10 +35,9 @@ const LoginRegister = ({ onLogin }) => {
         return; // Stop if auth type is invalid
     }
 
-    const endpoint = isLogin ? 'https://capbio.bi/api/login.php' : 'https://capbio.bi/api/register.php';
-    // const endpoint = isLogin ? 'http://192.168.10.25/dun/model.php' : 'http://192.168.10.25/dun/model.php';
-
-    try {
+    // const endpoint = isLogin ? 'https://capbio.bi/api/login.php' : 'https://capbio.bi/api/register.php';
+       const endpoint = 'http://192.168.10.25/dun/model.php'
+    try {    
       const resp = await fetch(endpoint, {
         method: 'POST',
         headers: {
@@ -58,14 +55,14 @@ const LoginRegister = ({ onLogin }) => {
         setMsg(res.message)
         onLogin(res.token,res.data); // Pass token to parent component
         navigate('/home'); // Redirect to home after login
-      } else{
-        setSapor(res.error)
+      } else if(!res.success){
+        throw new Error(res.error)
+      }else{
+      setMsg(res.message)
       }
     } catch (err) {
       setSapor(err.message)
-    }finally{
-        setMsg(null)
-        setSapor(null)
+      setTimeout(()=>{setSapor(null)},2000)
     }
   };
 
@@ -111,8 +108,8 @@ const LoginRegister = ({ onLogin }) => {
             value={company.auth}
             onChange={pickValue}
             onBlur={determineAuthType}
-            error={!!sapor}
-            helperText={sapor}
+            // error={!!sapor}
+            // helperText={sapor}
             required
           />
           <TextField
@@ -133,7 +130,7 @@ const LoginRegister = ({ onLogin }) => {
         <Box mt={2} textAlign="center">
           <Typography>
             {isLogin ? "Vous n'avez pas de compte ? " : "Avez-vous deja un compte? "}
-            <Button color="primary" onClick={() => setIsLogin(!isLogin)}>
+            <Button color="primary" onClick={() => {setIsLogin(!isLogin);setCompany((prev)=>({...prev,login:!company['login']}))}}>
               {isLogin ? 'Creez-en un.' : 'Connectez-vous.'}
             </Button>
           </Typography>

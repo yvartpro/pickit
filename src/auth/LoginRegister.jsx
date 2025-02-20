@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Paper, TextField, Button, Typography, Box} from '@mui/material';
+import Snackbar from '@mui/material/Snackbar';
 
 
 const LoginRegister = ({ onLogin }) => {

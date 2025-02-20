@@ -74,7 +74,7 @@ const Home = ({ rentals, addRent }) => {
           label="Rechercher..."
           variant="outlined"
           margin="normal"
-          sx={{maxWidth:'300px'}}
+          sx={{maxWidth:'400px'}}
           onChange={handleSearch}
         />
         <DataGrid

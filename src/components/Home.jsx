@@ -66,6 +66,7 @@ const Home = ({ users, addUser }) => {
       <Box sx={{display:{lg:'flex',md:'none',xs:'none'}, justifyContent:'space-around', alignItems:'center', py:2,flexDirection:'row'}}>
             <TextField
               size="small"
+              sx={{mx:1}}
               name="name"
               value={newUser.name}
               onChange={handleInputChange}
@@ -73,6 +74,7 @@ const Home = ({ users, addUser }) => {
             />
             <TextField
               size="small"
+              sx={{mx:1}}
               name="address"
               value={newUser.address}
               onChange={handleInputChange}
@@ -80,6 +82,7 @@ const Home = ({ users, addUser }) => {
             />
             <TextField
               size="small"
+              sx={{mx:1}}
               name="phone"
               value={newUser.phone}
               onChange={handleInputChange}
@@ -87,6 +90,7 @@ const Home = ({ users, addUser }) => {
             />
             <TextField
               size="small"
+              sx={{mx:1}}
               name="item"
               value={newUser.item}
               onChange={handleInputChange}
@@ -94,6 +98,7 @@ const Home = ({ users, addUser }) => {
               />
             <TextField
               size="small"
+              sx={{width:'100px',mx:1}}
               type="number"
               name="quantity"
               value={newUser.quantity}
@@ -105,6 +110,7 @@ const Home = ({ users, addUser }) => {
       <Box sx={{display:{md:'flex',lg:'none', xs:'none'}, justifyContent:'space-around', alignItems:'center', py:2, flexDirection:'row'}}>
         <TextField
           size="small"
+          sx={{mx:1}}
           name="name"
           value={newUser.name}
           onChange={handleInputChange}
@@ -112,6 +118,7 @@ const Home = ({ users, addUser }) => {
         />
         <TextField
           size="small"
+          sx={{mx:1}}
           name="address"
           value={newUser.address}
           onChange={handleInputChange}
@@ -119,6 +126,7 @@ const Home = ({ users, addUser }) => {
         />
         <TextField
           size="small"
+          sx={{mx:1}}
           name="phone"
           value={newUser.phone}
           onChange={handleInputChange}
@@ -126,6 +134,7 @@ const Home = ({ users, addUser }) => {
         />
         <TextField
           size="small"
+          sx={{mx:1}}
           name="item"
           value={newUser.item}
           onChange={handleInputChange}
@@ -133,6 +142,7 @@ const Home = ({ users, addUser }) => {
         />
         <TextField
           size="small"
+          sx={{width:'100px',mx:1}}
           type="number"
           name="quantity"
           value={newUser.quantity}
